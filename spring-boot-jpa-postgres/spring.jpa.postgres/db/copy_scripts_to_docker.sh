@@ -1,0 +1,1 @@
+docker cp tutdb.sql postgresdb:/
