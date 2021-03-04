@@ -5,7 +5,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "tutorials")
 public class Tutorial {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -20,7 +19,6 @@ public class Tutorial {
     private boolean published;
 
     public Tutorial() {
-
     }
 
     public Tutorial(String title, String description, boolean published) {
