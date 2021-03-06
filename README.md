@@ -10,3 +10,6 @@
 
 ## [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
 
+## [Spring Data Order Example](https://github.com/spring-projects/spring-data-book)
+
+An exmaple of SpringData JPA that implements Order :)
