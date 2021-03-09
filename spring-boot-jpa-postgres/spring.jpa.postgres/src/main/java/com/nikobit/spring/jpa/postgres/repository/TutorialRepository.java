@@ -16,7 +16,7 @@ import com.nikobit.spring.jpa.postgres.model.Tutorial;
  * - delete()
  * - deleteById()
  *
- * Here we add methods that are nit supported by default.
+ * Here we add methods that are not supported by default.
  */
 public interface TutorialRepository extends JpaRepository<Tutorial, Long> {
     List<Tutorial> findByPublished(boolean published);

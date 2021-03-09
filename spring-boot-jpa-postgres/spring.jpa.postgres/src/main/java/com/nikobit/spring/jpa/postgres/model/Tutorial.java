@@ -4,11 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "tutorials")
-public class Tutorial {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-
+public class Tutorial extends AbstractEntity {
     @Column(name = "title")
     private String title;
 
@@ -18,17 +14,13 @@ public class Tutorial {
     @Column(name = "published")
     private boolean published;
 
-    public Tutorial() {
+    protected Tutorial() {
     }
 
     public Tutorial(String title, String description, boolean published) {
         this.title = title;
         this.description = description;
         this.published = published;
-    }
-
-    public long getId() {
-        return id;
     }
 
     public String getTitle() {
@@ -57,6 +49,6 @@ public class Tutorial {
 
     @Override
     public String toString() {
-        return "Tutorial [id=" + id + ", title=" + title + ", desc=" + description + ", published=" + published + "]";
+        return "Tutorial [id=" + getId() + ", title=" + title + ", desc=" + description + ", published=" + published + "]";
     }
 }
