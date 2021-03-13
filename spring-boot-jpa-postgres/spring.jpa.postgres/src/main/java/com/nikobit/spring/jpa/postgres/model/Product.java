@@ -11,19 +11,19 @@ import java.math.BigDecimal;
 
 @Entity
 @Getter @Setter @NoArgsConstructor @ToString
-public class LineItem extends AbstractEntity {
-    @Column(name = "ordinal")
-    private Integer ordinal;
+public class Product extends AbstractEntity {
+    @Column(name = "name", nullable = false)
+    private String name;
 
-    @ManyToOne
-    private Product product;
-    
+    @Column(name = "price")
+    private BigDecimal price;
+
     @Column(name = "quantity")
     private Integer quantity;
 
-    public LineItem(Integer ordinal, Product product, Integer quantity) {
-        this.ordinal = ordinal;
-        this.product = product;
+    public Product(String name, BigDecimal price, Integer quantity) {
+        this.name = name;
+        this.price = price;
         this.quantity = quantity;
     }
 }
