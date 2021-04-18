@@ -20,7 +20,7 @@ Created using Spring Boot 2.4.3.
 
 ### Run app from command line
 
-* `$ mvn clean package -Dmaven.tet.skip=true`
+* `$ mvn clean package -Dmaven.test.skip=true`
 * `$ java -jar target/spring.jpa.postgres-{version}.jar`
 
 or
