@@ -23,13 +23,13 @@ import com.nikobit.spring.jpa.postgres.repository.TutorialRepository;
 
 @CrossOrigin(origins = "http://localhost:8081")
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/tutorials")
 public class TutorialController {
 
     @Autowired
     TutorialRepository tutorialRepository;
 
-    @GetMapping("/tutorials")
+    @GetMapping("")
     public ResponseEntity<List<Tutorial>> getAllTutorials(@RequestParam(required = false) String title) {
         try {
             List<Tutorial> tutorials = new ArrayList<Tutorial>();
@@ -49,7 +49,7 @@ public class TutorialController {
         }
     }
 
-    @GetMapping("/tutorials/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Tutorial> getTutorialById(@PathVariable("id") long id) {
         Optional<Tutorial> tutorialData = tutorialRepository.findById(id);
 
@@ -60,7 +60,7 @@ public class TutorialController {
         }
     }
 
-    @PostMapping("/tutorials")
+    @PostMapping("")
     public ResponseEntity<Tutorial> createTutorial(@RequestBody Tutorial tutorial) {
         try {
             Tutorial _tutorial = tutorialRepository
@@ -71,7 +71,7 @@ public class TutorialController {
         }
     }
 
-    @PutMapping("/tutorials/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Tutorial> updateTutorial(@PathVariable("id") long id, @RequestBody Tutorial tutorial) {
         Optional<Tutorial> tutorialData = tutorialRepository.findById(id);
 
@@ -86,7 +86,7 @@ public class TutorialController {
         }
     }
 
-    @DeleteMapping("/tutorials/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<HttpStatus> deleteTutorial(@PathVariable("id") long id) {
         try {
             tutorialRepository.deleteById(id);
@@ -96,7 +96,7 @@ public class TutorialController {
         }
     }
 
-    @DeleteMapping("/tutorials")
+    @DeleteMapping("")
     public ResponseEntity<HttpStatus> deleteAllTutorials() {
         try {
             tutorialRepository.deleteAll();
@@ -107,7 +107,7 @@ public class TutorialController {
 
     }
 
-    @GetMapping("/tutorials/published")
+    @GetMapping("/published")
     public ResponseEntity<List<Tutorial>> findByPublished() {
         try {
             List<Tutorial> tutorials = tutorialRepository.findByPublished(true);
