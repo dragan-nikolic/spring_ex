@@ -25,7 +25,9 @@ public class UserController {
         sleep(1_000); // simplest brute-forcing prevention :)
         validateEmail(user.getEmail());
 
-        if (userRepository.findByEmail(user.getEmail()))
+        if (userRepository.findByEmail(user.getEmail())) {
+            
+        }
         
         try {
             Tutorial _tutorial = tutorialRepository
