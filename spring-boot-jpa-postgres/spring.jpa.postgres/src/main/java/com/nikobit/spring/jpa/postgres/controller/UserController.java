@@ -1,7 +1,6 @@
 package com.nikobit.spring.jpa.postgres.controller;
 
 import com.nikobit.spring.jpa.postgres.exception.TutorialBadRequest;
-import com.nikobit.spring.jpa.postgres.model.Tutorial;
 import com.nikobit.spring.jpa.postgres.model.User;
 import com.nikobit.spring.jpa.postgres.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,18 +20,17 @@ public class UserController {
     UserRepository userRepository;
 
     @PostMapping("/register")
-    public ResponseEntity<> registerUser(@RequestBody User user) throws InterruptedException {
+    public ResponseEntity<User> registerUser(@RequestBody User user) throws InterruptedException {
         sleep(1_000); // simplest brute-forcing prevention :)
         validateEmail(user.getEmail());
 
-        if (userRepository.findByEmail(user.getEmail())) {
-            
+        if (userRepository.findByEmail(user.getEmail()) != null) {
+            throw new TutorialBadRequest(String.format("Email %s already registered!", user.getEmail()));
         }
         
         try {
-            Tutorial _tutorial = tutorialRepository
-                    .save(new Tutorial(tutorial.getTitle(), tutorial.getDescription(), false));
-            return new ResponseEntity<>(_tutorial, HttpStatus.CREATED);
+            User _user = userRepository.save(user);
+            return new ResponseEntity<>(_user, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
