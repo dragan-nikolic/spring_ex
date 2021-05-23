@@ -38,3 +38,14 @@ curl --location --request POST "${apiurl}/products" \
     "price": 1.00,
     "quantity": 1000
   }'
+
+# Add users
+curl --location --request POST "${apiurl}/users/register" \
+  --header "${authorization}" \
+  --header "${content_type}" \
+  --data-raw '{
+    "firstname": "Dragan",
+    "lastname": "Nikolic",
+    "email": "dn@test.com",
+    "password": "pera123"
+  }'

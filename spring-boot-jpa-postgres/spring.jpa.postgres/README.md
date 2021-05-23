@@ -2,6 +2,10 @@
 
 Created using Spring Boot 2.4.3.
 
+Based on [Spring Boot, JPA/Hibernate, PostgreSQL example with Maven](https://bezkoder.com/spring-boot-postgresql-example/).
+
+Added examples for Order.
+
 ## Prerequisites
 
 * Java JDK 8

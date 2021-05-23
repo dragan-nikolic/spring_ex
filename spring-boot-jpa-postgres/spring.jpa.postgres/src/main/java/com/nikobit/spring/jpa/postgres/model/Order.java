@@ -9,7 +9,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "orders")
-public class Order {
+public class Order extends AbstractEntity {
     @ManyToOne(optional = false)
     private User user;
 
@@ -31,7 +31,7 @@ public class Order {
 
         this.user = user;
         this.createdAt = createdAt;
-        this.state = OrderState.CREATED;
+        this.state = OrderState.CART;
     }
 
     protected Order() {
